@@ -1374,11 +1374,6 @@ input::placeholder {
   background-color: rgb(33 49 60 / var(--tw-bg-opacity));
 }
 
-.bg-green-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(232 255 230 / var(--tw-bg-opacity));
-}
-
 .bg-green-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(10 173 10 / var(--tw-bg-opacity));
@@ -1666,11 +1661,6 @@ input::placeholder {
 .text-green-600 {
   --tw-text-opacity: 1;
   color: rgb(10 173 10 / var(--tw-text-opacity));
-}
-
-.text-green-800 {
-  --tw-text-opacity: 1;
-  color: rgb(16 100 18 / var(--tw-text-opacity));
 }
 
 .text-inherit {
@@ -2011,6 +2001,10 @@ small,
 
   .lg\:min-w-\[1140px\] {
     min-width: 1140px;
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .lg\:flex-wrap {
