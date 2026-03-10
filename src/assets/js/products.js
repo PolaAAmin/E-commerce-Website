@@ -1,12 +1,15 @@
-const xhttp = new XMLHttpRequest();
+ const xhttp = new XMLHttpRequest();
 
 xhttp.onload = function () {
     const productsContainer = document.getElementById("products");
     let output = "";
     const products = JSON.parse(this.responseText);
+    if (Array.isArray(products)) {
+        window.productsData = products;
+    }
 
     if (xhttp.status === 200) {
-        for (let i = 0; i < products.length && i <= 20; i++) {
+        for (let i = 0; i < products.length && i < 20; i++) {
             output += `
             <div class="relative rounded-lg break-words border bg-white border-gray-300 card-product">
                 <div class="flex-auto p-4">
@@ -18,7 +21,7 @@ xhttp.onload = function () {
                                     <a href="#!"
                                         class="h-[34px] w-[34px] leading-[34px] bg-white shadow inline-flex items-center justify-center rounded-lg hover:bg-green-600 hover:text-white"
                                         data-bs-toggle="tooltip" data-bs-html="true" title="Quick View">
-                                        <span data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                        <span data-bs-toggle="modal" data-bs-target="#quickViewModal" data-product-id="${products[i].id}">
                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                 class="icon icon-tabler icon-tabler-eye" width="16" height="16"
                                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -122,7 +125,7 @@ xhttp.onload = function () {
                                 </div>
                                 <div class="flex justify-between items-center">
                                     <div>
-                                        <span class="text-gray-900 font-semibold">${products[i].price.toFixed(2)}</span>
+                                        <span class="text-gray-900 font-semibold">$${products[i].price.toFixed(2)}</span>
                                     </div>
                                     <div>
                                         <button type="button"
