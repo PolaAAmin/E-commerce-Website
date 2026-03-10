@@ -4,10 +4,7 @@ xhttp.onload = function () {
     const productsContainer = document.getElementById("products");
     let output = "";
     const products = JSON.parse(this.responseText);
-    if (Array.isArray(products)) {
-        window.productsData = products;
-    }
-
+    
     if (xhttp.status === 200) {
         for (let i = 0; i < products.length && i < 20; i++) {
             output += `
