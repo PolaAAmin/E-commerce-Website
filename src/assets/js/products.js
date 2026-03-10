@@ -1,4 +1,4 @@
- const xhttp = new XMLHttpRequest();
+const xhttp = new XMLHttpRequest();
 
 xhttp.onload = function () {
     const productsContainer = document.getElementById("products");
@@ -13,7 +13,6 @@ xhttp.onload = function () {
                     <div class="text-center relative flex justify-center">
                         <a href="#!"><img src="${products[i].image}"
                                         alt="Grocery Ecommerce Template" class="w-full h-auto" /></a>
-
                                 <div class="absolute w-full bottom-[15%] opacity-0 invisible card-product-action">
                                     <a href="#!"
                                         class="h-[34px] w-[34px] leading-[34px] bg-white shadow inline-flex items-center justify-center rounded-lg hover:bg-green-600 hover:text-white"
