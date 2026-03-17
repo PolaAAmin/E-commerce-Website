@@ -1,9 +1,10 @@
 const xhttp = new XMLHttpRequest();
+let products = [];
 
 xhttp.onload = function () {
     const productsContainer = document.getElementById("products");
     let output = "";
-    const products = JSON.parse(this.responseText);
+    products = JSON.parse(this.responseText);
     
     if (xhttp.status === 200) {
         for (let i = 0; i < products.length && i < 20; i++) {
@@ -149,6 +150,41 @@ xhttp.onload = function () {
         productsContainer.innerHTML = "<p>Unable to load products.</p>";
     }
 };
+
+document.addEventListener("click", function (e) {
+
+    const button = e.target.closest("[data-product-id]");
+    if (!button) return;
+
+    const productId = button.getAttribute("data-product-id");
+
+    const product = products.find(p => p.id == productId);
+
+    if (!product) return;
+
+    document.getElementById("quickViewName").innerText = product.name;
+
+    document.getElementById("quickViewDescription").innerText = product.description;
+
+    document.getElementById("quickViewPrice").innerText = "$" + product.price.toFixed(2);
+
+    document.getElementById("quickViewOldPrice").innerText = "$" + (product.price * 1.2).toFixed(2);
+
+    document.getElementById("quickViewDiscount").innerText = "20% Off";
+
+    document.getElementById("quickViewCategory").innerText = product.product_category?.name || "Category";
+
+    document.getElementById("quickViewCode").innerText = product.id;
+
+    const images = document.querySelectorAll("[data-quick-view-image]");
+    images.forEach(img => {
+        img.src = product.image;
+    });
+
+    document.querySelectorAll("[data-quick-view-zoom]").forEach(div => {
+        div.style.backgroundImage = `url(${product.image})`;
+    });
+});
 
 xhttp.open("GET", "./assets/data/products.json", true);
 xhttp.send();
