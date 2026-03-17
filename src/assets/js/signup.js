@@ -24,7 +24,7 @@ emailInput.addEventListener('input', () => validateInput(emailInput, Patterns.em
 passwordInput.addEventListener('input', () => validateInput(passwordInput, Patterns.password));
 
 form.addEventListener('submit', (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     validateInput(nameInput, Patterns.name);
     validateInput(emailInput, Patterns.email);
     validateInput(passwordInput, Patterns.password);
