@@ -336,6 +336,28 @@
     </div>
 </header>
 <!-- Modal -->
+ 
+
+<div>
+    <script>
+function deleteData(){
+localStorage.clear();
+}
+    </script>
+    <a href="#!" onclick="deleteData()"
+       style="
+           position: fixed;
+           top: 40px;
+           right: 10px;
+           background-color: #fff;
+           color: #111827;              
+           padding: 8px 12px;
+           border-radius: 5px;
+           font-weight: 600;     
+           z-index: 1000;
+       "> LogOut
+    </a>
+</div>
 <div class="modal fade" id="signinModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content p-8">
@@ -406,6 +428,8 @@
                 </button>
             </div>
             <div class="modal-body">
+
+                <!-- the updated form -->
                 <form class="needs-validation" id="signupForm" validate action="#signinModal">
                     <div class="mb-3">
                         <label for="fullName" class="mb-2 block text-gray-800">Name</label>
@@ -450,7 +474,6 @@
 </div>
 
 
-
 <!-- Shop Cart -->
 
 <div class="offcanvas offcanvas-right" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -492,7 +515,7 @@
         </div>
     </div>
 </div>
-
+ 
 <!-- Modal -->
 <div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
